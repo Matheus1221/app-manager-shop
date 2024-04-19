@@ -3,7 +3,7 @@ package br.com.quon.model;
 import java.util.Date;
 import java.util.Objects;
 
-public class Clients {
+public class Client {
 	
 	
 	
@@ -11,6 +11,7 @@ public class Clients {
 	private long id;
 	private String firstName;
 	private String lastName;
+	private String gender;
 	private Date birthDay;
 	private String nameUser;
 	private String userPassword;
@@ -53,12 +54,16 @@ public class Clients {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	
-	
+	public void setGender(String genter) {
+		this.gender = genter;
+	}
+	public String getGender() {
+		return gender;
+	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(birthDay, firstName, id, lastName, nameUser, userPassword);
+		return Objects.hash(birthDay, firstName, gender, id, lastName, nameUser, userPassword);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -68,10 +73,10 @@ public class Clients {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Clients other = (Clients) obj;
-		return Objects.equals(birthDay, other.birthDay) && Objects.equals(firstName, other.firstName) && id == other.id
-				&& Objects.equals(lastName, other.lastName) && Objects.equals(nameUser, other.nameUser)
-				&& Objects.equals(userPassword, other.userPassword);
+		Client other = (Client) obj;
+		return Objects.equals(birthDay, other.birthDay) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(gender, other.gender) && id == other.id && Objects.equals(lastName, other.lastName)
+				&& Objects.equals(nameUser, other.nameUser) && Objects.equals(userPassword, other.userPassword);
 	}
 	
 

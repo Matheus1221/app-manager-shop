@@ -13,6 +13,10 @@ public class Products {
 	private String description;
 	
 	
+	public Products() {}
+	
+	
+	
 	long getId() {
 		return id;
 	}

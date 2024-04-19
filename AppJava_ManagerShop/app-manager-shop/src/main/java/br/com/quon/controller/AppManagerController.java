@@ -1,27 +1,28 @@
 package br.com.quon.controller;
 
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.quon.model.Clients;
-
-import org.springframework.web.bind.annotation.GetMapping;
+import br.com.quon.model.Client;
+import br.com.quon.services.ClientService;
 
 @RestController
-@RequestMapping("/clients")
+@RequestMapping("/client")
 public class AppManagerController {
 	
-	
-	private Clients client; 
+	@Autowired
+	public ClientService service; 
 
-	@GetMapping(value = "/id")
-	public List<Clients> findAll(){
+	@GetMapping(value = "/{id}",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public Client findById(@PathVariable(value = "id") String id){
 		
-		
-		return null;
+	return service.findById(id);
 	}
 	
 	
